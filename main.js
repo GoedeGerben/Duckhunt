@@ -24,7 +24,7 @@ function hit() {//de functie voor als je je schot raakt.
 function death() {//speelt de death animation van de eend af
 
 }
-var eend = document.getElementById("duck");
+var eend = document.getElementById("background");
 function move() {
 	eend.style.marginLeft = (eend.style.marginLeft + "10px");
 	console.log(document.getElementById("duck").style.marginLeft)
