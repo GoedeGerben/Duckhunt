@@ -3,9 +3,8 @@ var shots = 0;//houd je resterende kogels bij.
 var totalHits = 0;//houd bij hoeveel eenden je geraakt hebt.
 var totalmiss = 0;
 var scorecount = 0;//houd je score bij.
-var directions = ["marginLeft", "marginTop"]
-var direction = "marginLeft";
 var eend = document.getElementById("duck");
+var gamespeed = 100;
 eend.style.marginLeft = "550px";
 eend.style.marginTop = "400px";
 document.getElementById("bullets").style.clip = "rect(0px,110px,25px,0px)";
@@ -54,33 +53,23 @@ function totalcheck() {
 }
 
 function move() {
-	var randomnumber = Math.floor(Math.random()*4);
+	var randomnumber = Math.floor(Math.random()*3);
+	var yeet = [0,+gamespeed,-gamespeed];
+	
+	eend.style.marginLeft = parseInt(eend.style.marginLeft) + (yeet[Math.floor(Math.random()*3)]) + "px";
+	eend.style.marginTop = parseInt(eend.style.marginTop) + (yeet[Math.floor(Math.random()*3)]) + "px";	
 
-	if (randomnumber == 0) {
-		eend.style.marginLeft = parseInt(eend.style.marginLeft) + 10 + "px";
-	}else if (randomnumber == 1) {
-		eend.style.marginTop = parseInt(eend.style.marginTop) + 10 + "px";	
-	}else if (randomnumber == 2) {
-		eend.style.marginLeft = parseInt(eend.style.marginLeft) - 10 + "px";
-	}else if (randomnumber == 3) {
-		eend.style.marginTop = parseInt(eend.style.marginTop) - 10 + "px";
-	}
 	console.log(randomnumber)
 	console.log(eend.style.marginTop)
 	console.log(eend.style.marginLeft)
 }
 setInterval(function move() {
 	var randomnumber = Math.floor(Math.random()*4);
+	var yeet = [0,+gamespeed,-gamespeed];
 
-	if (randomnumber == 0) {
-		eend.style.marginLeft = parseInt(eend.style.marginLeft) + 10 + "px";
-	}else if (randomnumber == 1) {
-		eend.style.marginTop = parseInt(eend.style.marginTop) + 10 + "px";	
-	}else if (randomnumber == 2) {
-		eend.style.marginLeft = parseInt(eend.style.marginLeft) - 10 + "px";
-	}else if (randomnumber == 3) {
-		eend.style.marginTop = parseInt(eend.style.marginTop) - 10 + "px";
-	}
+	eend.style.marginLeft = parseInt(eend.style.marginLeft) + (yeet[Math.floor(Math.random()*3)]) + "px";
+	eend.style.marginTop = parseInt(eend.style.marginTop) + (yeet[Math.floor(Math.random()*3)]) + "px";	
+
 	console.log(randomnumber)
 	console.log(eend.style.marginTop)
 	console.log(eend.style.marginLeft)
