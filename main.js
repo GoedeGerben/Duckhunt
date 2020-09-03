@@ -4,7 +4,8 @@ var totalHits = 0;//houd bij hoeveel eenden je geraakt hebt.
 var totalmiss = 0;
 var scorecount = 0;//houd je score bij.
 var eend = document.getElementById("duck");
-var gamespeed = 100;
+var gamespeed = 10;
+var gamespeed2 = 1500;
 eend.style.marginLeft = "550px";
 eend.style.marginTop = "400px";
 document.getElementById("bullets").style.clip = "rect(0px,110px,25px,0px)";
@@ -36,12 +37,13 @@ function raak() {//de functie voor als je je schot raakt.
 	shots = 0;
 	eend.style.marginTop = "8400px";
 	document.getElementById("bullets").style.clip = "rect(0px,110px,25px,0px)";
-	document.getElementById("totalscore").innerHTML = "000" + (totalHits * 100)
-
+	document.getElementById("totalscore").innerHTML = "000" + (totalHits * 100);
+	scorecount = totalHits * 100;
+	console.log(scorecount)
 	setTimeout(function(){
 		eend.style.marginLeft = "550px";
 		eend.style.marginTop = "400px";
-	}, 3000);
+	}, 2000);
 	totalcheck()
 }
 
@@ -59,19 +61,13 @@ function move() {
 	eend.style.marginLeft = parseInt(eend.style.marginLeft) + (yeet[Math.floor(Math.random()*3)]) + "px";
 	eend.style.marginTop = parseInt(eend.style.marginTop) + (yeet[Math.floor(Math.random()*3)]) + "px";	
 
-	console.log(randomnumber)
-	console.log(eend.style.marginTop)
-	console.log(eend.style.marginLeft)
 }
+
 setInterval(function move() {
 	var randomnumber = Math.floor(Math.random()*4);
 	var yeet = [0,+gamespeed,-gamespeed];
 
 	eend.style.marginLeft = parseInt(eend.style.marginLeft) + (yeet[Math.floor(Math.random()*3)]) + "px";
 	eend.style.marginTop = parseInt(eend.style.marginTop) + (yeet[Math.floor(Math.random()*3)]) + "px";	
-
-	console.log(randomnumber)
-	console.log(eend.style.marginTop)
-	console.log(eend.style.marginLeft)
-},1500);
+},gamespeed2);
 
