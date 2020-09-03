@@ -81,5 +81,15 @@ body {
 	float: left;
 	margin-left: 69px;
 	margin-top: 660px;
+	text-align: center;
+}
 
+#totalscore {
+	font-size: 32px;
+	color: white;
+}
+
+#scoretext {
+	font-size: 32px;
+	color: white;
 }
